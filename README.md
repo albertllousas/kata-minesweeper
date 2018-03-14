@@ -100,3 +100,7 @@ Erlang/OTP 20 [erts-9.0.4] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-thread
 Elixir 1.5.1
 
 ```
+### Run the tests
+```bash
+mix test
+```

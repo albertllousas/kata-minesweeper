@@ -100,7 +100,17 @@ Erlang/OTP 20 [erts-9.0.4] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-thread
 Elixir 1.5.1
 
 ```
-### Run the tests
+### Running the tests
 ```bash
 mix test
 ```
+
+#### Approach
+
+There is one single entry point for the application, it has the functionality of facade and it orchestrate the
+for different parts of the implementation:
+
+- parse the input
+- create & validate the grid
+- generate grid with the hints (the algorithm)
+- generate the expected output

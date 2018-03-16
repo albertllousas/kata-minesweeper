@@ -10,10 +10,17 @@ defmodule Minesweeper.Grid do
 
   alias Minesweeper.Grid
 
-  @spec sweep_for_hints(grid :: Grid.t) :: Grid.t
-  def sweep_for_hints(grid) do
-    %Grid{}
+  @spec discover_hints(grid :: Grid.t) :: Grid.t
+  def discover_hints(grid) do
+    do_discover_hints(grid)
   end
 
+  defp do_discover_hints(%Grid{size: {0, 0}, squares: %{}}), do: %Grid{}
+
+  defp do_discover_hints( %Grid{size: {1, 1}, squares: %{{0,0}=>:mine}}),
+       do: %Grid{size: {1, 1}, squares: %{{0,0}=>:mine}}
+
+  defp do_discover_hints( %Grid{size: {1, 1}, squares: %{{0,0}=>:safe}}),
+       do: %Grid{size: {1, 1}, squares: %{{0,0}=>0}}
 
 end

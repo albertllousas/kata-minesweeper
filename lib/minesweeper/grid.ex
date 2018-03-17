@@ -4,7 +4,7 @@ defmodule Minesweeper.Grid do
   @type square :: (:mine | :safe | hint)
   @type position :: {non_neg_integer, non_neg_integer}
   @type squares :: %{position => square}
-  @type t :: %Minesweeper.Grid{size: {integer, integer}, squares: squares}
+  @type t :: %Minesweeper.Grid{size: {non_neg_integer, non_neg_integer}, squares: squares}
 
   defstruct size: {0, 0}, squares: %{}
 
@@ -25,7 +25,7 @@ defmodule Minesweeper.Grid do
 
 
   #  recursive until current evaluated position equals to size
-  #       public method calculate hint summing adjacents
-  # nextSquare(grid size, current square)
+  #       public method calculate hint summing adjacents Enum. 0 .. 8, quizas un reduce desde 0
+
 
 end

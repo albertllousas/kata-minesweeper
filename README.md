@@ -149,12 +149,13 @@ Minesweeper.sdf(path)
 
 3. Generate grid with the hints, the main algorithm  (Minesweeper.Grid.ex)
 
-  0 1 2 3
+  0 1 2 3 x
 ---------
 0|* 1 0 0 
 1|2 2 1 0  
 2|1 * 1 0 
 3|1 1 1 0 
+y
 
 - recursive
 

@@ -105,12 +105,65 @@ Elixir 1.5.1
 mix test
 ```
 
+### Compiling and running
+
+
+
 #### Approach
 
 There is one single entry point for the application, it has the functionality of facade and it orchestrate the
 for different parts of the implementation:
 
-- parse the input
-- create & validate the grid
-- generate grid with the hints (the algorithm)
-- generate the expected output
+1. parse the input
+2. create & validate the grid
+3. generate grid with the hints (the algorithm)
+4. generate the expected output
+
+
+Entry point (Minesweeper.ex)
+
+```bash
+Minesweeper.sdf(path)
+```
+
+1. Parsing the input from file (XXXX.ex):
+
+4 4
+*...
+....
+.*..
+....
+
+2. Create a grid :
+
+
+  0 1 2 3
+---------
+0|* . . .
+1|. . . . 
+2|. * . .
+3|. . . .
+
+* == :mine
+. == :safe
+
+3. Generate grid with the hints, the main algorithm  (Minesweeper.Grid.ex)
+
+  0 1 2 3
+---------
+0|* 1 0 0 
+1|2 2 1 0  
+2|1 * 1 0 
+3|1 1 1 0 
+
+- recursive
+
+4. Generate the output
+
+### Assumptions
+
+Valid input
+
+### Out of scope / to improve
+
+Error handling

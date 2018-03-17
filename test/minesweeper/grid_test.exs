@@ -6,12 +6,12 @@ defmodule Mineswepper.GridTest do
   @empty_grid %Grid{}
 
 
-  test "create a empty grid discovering hints on empty grid" do
+  test "in an empty grid should have empty discovered hints" do
     hints = Grid.discover_hints(@empty_grid)
     assert hints === @empty_grid
   end
 
-  test "discover any hints when there are only one square with a mine" do
+  test "in a single square grid with a mine the discovered hint should have ':mine' value" do
     the_smallest_grid_with_a_mine= %Grid{
       size: {1, 1},
       squares: %{
@@ -22,7 +22,7 @@ defmodule Mineswepper.GridTest do
     assert hints === the_smallest_grid_with_a_mine
   end
 
-  test "discover a hint with zero value when there is only one safe square" do
+  test "in a single square grid without mines the discovered hint should have 'zero' value" do
     the_smallest_safe_grid= %Grid{
       size: {1, 1},
       squares: %{
@@ -38,5 +38,6 @@ defmodule Mineswepper.GridTest do
     hints = Grid.discover_hints(the_smallest_safe_grid)
     assert hints === grid_with_one_hint_as_zero
   end
+
 
 end

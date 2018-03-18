@@ -1,9 +1,11 @@
 defmodule Minesweeper.FileParser do
 
+  @behaviour Minesweeper.GridParser
+
   alias Minesweeper.Grid
 
-  @spec grids(path :: String.t) :: [Grid.t]
-  def grids(path) do
+  @spec parse_grids(path :: String.t) :: [Grid.t]
+  def parse_grids(path) do
     file = File.open!(path)
     parse_grids(IO.read(file, :line), file)
   end

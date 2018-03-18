@@ -1,8 +1,8 @@
-defmodule Minesweeper.FileParserTest do
+defmodule Minesweeper.Input.FileParserTest do
   use ExUnit.Case
 
   alias Minesweeper.Grid
-  alias Minesweeper.FileParser
+  alias Minesweeper.Input.FileParser
 
 
   test "should fail when a file with a malformed header is parsed" do

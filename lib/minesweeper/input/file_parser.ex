@@ -1,6 +1,6 @@
-defmodule Minesweeper.FileParser do
+defmodule Minesweeper.Input.FileParser do
 
-  @behaviour Minesweeper.GridParser
+  @behaviour Minesweeper.Input.GridParser
 
   alias Minesweeper.Grid
 

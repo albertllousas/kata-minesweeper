@@ -37,43 +37,19 @@ defmodule Minesweeper.Input.FileParserTest do
     assert Enum.at(grids, 0) === %Grid{
              size: {4, 4},
              squares: %{
-               {0, 0} => :mine,
-               {0, 1} => :safe,
-               {0, 2} => :safe,
-               {0, 3} => :safe,
-               {1, 0} => :safe,
-               {1, 1} => :safe,
-               {1, 2} => :mine,
-               {1, 3} => :safe,
-               {2, 0} => :safe,
-               {2, 1} => :safe,
-               {2, 2} => :safe,
-               {2, 3} => :safe,
-               {3, 0} => :safe,
-               {3, 1} => :safe,
-               {3, 2} => :safe,
-               {3, 3} => :safe
+               {0, 0} => :mine, {1, 0} => :safe, {2, 0} => :safe, {3, 0} => :safe,
+               {0, 1} => :safe, {1, 1} => :safe, {2, 1} => :safe, {3, 1} => :safe,
+               {0, 2} => :safe, {1, 2} => :mine, {2, 2} => :safe, {3, 2} => :safe,
+               {0, 3} => :safe, {1, 3} => :safe, {2, 3} => :safe, {3, 3} => :safe
              }
            }
 
     assert Enum.at(grids, 1) === %Grid{
              size: {3, 5},
              squares: %{
-               {0, 0} => :mine,
-               {0, 1} => :safe,
-               {0, 2} => :safe,
-               {1, 1} => :safe,
-               {1, 2} => :mine,
-               {2, 0} => :safe,
-               {2, 1} => :safe,
-               {2, 2} => :safe,
-               {3, 0} => :safe,
-               {3, 1} => :safe,
-               {3, 2} => :safe,
-               {1, 0} => :mine,
-               {4, 0} => :safe,
-               {4, 1} => :safe,
-               {4, 2} => :safe
+               {0, 0} => :mine, {1, 0} => :mine, {2, 0} => :safe, {3, 0} => :safe, {4, 0} => :safe,
+               {0, 1} => :safe, {1, 1} => :safe, {2, 1} => :safe, {3, 1} => :safe, {4, 1} => :safe,
+               {0, 2} => :safe, {1, 2} => :mine, {2, 2} => :safe, {3, 2} => :safe, {4, 2} => :safe
              }
            }
   end

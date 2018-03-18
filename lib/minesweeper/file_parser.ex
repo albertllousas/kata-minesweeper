@@ -31,13 +31,14 @@ defmodule Minesweeper.GridBuilder do
       |> String.trim
       |> String.graphemes
       |> Enum.with_index
-#      |> IO.inspect
       |> Enum.map(fn {char, x} -> {{x, y},square_value(char)} end)
     end
-    IO.inspect entries
+
     squares = entries
     |> List.foldl([], &(&1 ++ &2))
     |> Map.new
+
+    if map_size(squares) != elem(size, 0) * elem(size, 1), do: raise "Bad number of squares provided in the grid"
 
     %Grid{size: size, squares: squares}
   end

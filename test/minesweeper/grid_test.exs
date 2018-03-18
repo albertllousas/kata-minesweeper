@@ -101,7 +101,29 @@ defmodule Mineswepper.GridTest do
    assert hints === expected
   end
 
+  test "in a grid with some mines the discovered hints should have the expected values" do
+    grid= %Grid{
+      size: {4, 4},
+      squares: %{
+        {0, 0} => :mine, {1, 0} => :safe, {2, 0} => :safe, {3, 0} => :safe,
+        {0, 1} => :safe, {1, 1} => :safe, {2, 1} => :safe, {3, 1} => :safe,
+        {0, 2} => :safe, {1, 2} => :mine, {2, 2} => :safe, {3, 2} => :safe,
+        {0, 3} => :safe, {1, 3} => :safe, {2, 3} => :safe, {3, 3} => :safe
+      }
+    }
+    expected= %Grid{
+      size: {4, 4},
+      squares: %{
+        {0, 0} => :mine, {1, 0} => 1, {2, 0} => 0, {3, 0} => 0,
+        {0, 1} => 2,  {1, 1} => 2, {2, 1} => 1, {3, 1} => 0,
+        {0, 2} => 1, {1, 2} => :mine, {2, 2} => 1, {3, 2} => 0,
+        {0, 3} => 1, {1, 3} => 1, {2, 3} => 1, {3, 3} => 0
+      }
+    }
 
+    hints =  Grid.discover_hints(grid)
+    assert hints === expected
+  end
 
 
 end

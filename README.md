@@ -175,8 +175,12 @@ The algorithm is simple, recursive and tail call optimized:
 
 ### Assumptions
 
-Valid input
+The solution takes some assumptions and the code reflect them:
+
+- The file has a valid format, so there is no code checking the correctness of the grid
 
 ### Out of scope / to improve
 
-Error handling
+- Input file validation
+- Error handling
+- File input parser could be improved, at least make it tail call optimized

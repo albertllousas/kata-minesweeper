@@ -1,14 +1,14 @@
-defmodule Minesweeper.GridBuilder do
+defmodule Minesweeper.FileParser do
 
   alias Minesweeper.Grid
 
-  @spec create_grids_from_file(path :: String.t) :: [Grid.t]
-  def create_grids_from_file(path) do
+  @spec grids(path :: String.t) :: [Grid.t]
+  def grids(path) do
     file = File.open!(path)
     parse_grids(IO.read(file, :line), file)
   end
 
-  defp parse_grids(:eof, file), do: []
+  defp parse_grids(:eof, _), do: []
 
   defp parse_grids(size_line, file) do
     {x, y} = parse_grid_size(size_line)
@@ -26,7 +26,7 @@ defmodule Minesweeper.GridBuilder do
 
   defp create_board(size, board_lines) do
 
-    entries = for {line, y} = line_with_index <- Enum.with_index board_lines do
+    entries = for {line, y} <- Enum.with_index board_lines do
       line
       |> String.trim
       |> String.graphemes

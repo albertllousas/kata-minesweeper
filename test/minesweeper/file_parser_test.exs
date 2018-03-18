@@ -1,25 +1,25 @@
-defmodule Minesweeper.GridBuilderTest do
+defmodule Minesweeper.FileParserTest do
   use ExUnit.Case
 
   alias Minesweeper.Grid
-  alias Minesweeper.GridBuilder
+  alias Minesweeper.FileParser
 
 
   test "should fail when a file with a malformed header is parsed" do
-    assert_raise MatchError, fn -> GridBuilder.create_grids_from_file "test/resources/malformed_grid_size.txt" end
+    assert_raise MatchError, fn -> FileParser.grids "test/resources/malformed_grid_size.txt" end
   end
 
   test "should fail when a file with a less grid rows as expected is parsed" do
-    assert_raise FunctionClauseError, fn -> GridBuilder.create_grids_from_file "test/resources/less_rows_than_expected.txt" end
+    assert_raise FunctionClauseError, fn -> FileParser.grids "test/resources/less_rows_than_expected.txt" end
   end
 
   test "should fail when a file with a more squares than expected is parsed" do
-    assert_raise RuntimeError, fn -> GridBuilder.create_grids_from_file "test/resources/more_squares_than_expected.txt" end
+    assert_raise RuntimeError, fn -> FileParser.grids "test/resources/more_squares_than_expected.txt" end
   end
 
   test "should create a list of one grid from file" do
-    grids = GridBuilder.create_grids_from_file "test/resources/simple_grid.txt"
-    assert Enum.count(grids) == 1
+    grids = FileParser.grids "test/resources/simple_grid.txt"
+    assert Enum.count(grids) === 1
     assert Enum.at(grids, 0) === %Grid{
              size: {4, 4},
              squares: %{

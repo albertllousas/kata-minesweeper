@@ -1,6 +1,6 @@
 defmodule Minesweeper.Output.ConsoleWriter do
 
-  @behaviour Minesweeper.Input.GridParser
+  @behaviour Minesweeper.Output.GridWriter
   alias Minesweeper.Grid
 
   @spec write_grids([Grid.t]) :: none

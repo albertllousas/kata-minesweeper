@@ -78,4 +78,10 @@ defmodule Minesweeper.SquareTest do
     assert next === {:next, {1, 1}}
   end
 
+  test "in a non squared grid, the next square of the square before the left boundary should be the square in the
+       boundary" do
+    next = Square.next({2, 4}, {2, 0})
+    assert next === {:next,{3,0}}
+  end
+
 end

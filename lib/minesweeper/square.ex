@@ -23,8 +23,8 @@ defmodule Minesweeper.Square do
     {rows, columns} = grid_size
     {x, y} = square
     cond do
-      x < rows - 1 -> {:next, {x + 1, y}}
-      y < columns - 1 -> {:next, {0, y + 1}}
+      x < columns - 1 -> {:next, {x + 1, y}}
+      y < rows - 1 -> {:next, {0, y + 1}}
       true -> {:out_of_grid}
     end
   end

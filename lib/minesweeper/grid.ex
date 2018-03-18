@@ -49,7 +49,7 @@ defmodule Minesweeper.Grid do
   defimpl String.Chars, for: Grid do
     def to_string(grid) do
       %Grid{size: {x,y}, squares: squares }= grid
-      squares_as_string = Enum.map(squares, fn {k, v} -> "{#{elem(k,0)}, #{elem(k,1)} => #{v}" end)
+      squares_as_string = Enum.map(squares, fn {k, v} -> "{#{elem(k,0)}, #{elem(k,1)} => #{v}} " end)
       "grid : {size: {#{x}, #{y}}, squares: #{squares_as_string}}"
     end
   end

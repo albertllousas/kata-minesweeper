@@ -92,6 +92,8 @@ Field #2:
 
 ## The solution
 
+The solution has been written doing TDD, check git logs.
+
 ### Developed and tested environment
 ```bash
 elixir -v

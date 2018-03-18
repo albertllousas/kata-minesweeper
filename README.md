@@ -92,7 +92,7 @@ Field #2:
 
 ## The solution
 
-The solution has been written doing TDD, check git logs.
+The solution has been coded with TDD, check git logs.
 
 ### Developed and tested environment
 ```bash
@@ -112,10 +112,9 @@ mix test
 There is one single entry point for the application, it has the functionality of facade and it orchestrate the
 for different parts of the implementation:
 
-1. parse the input
-2. create & validate the grid
-3. generate grid with the hints (the algorithm)
-4. generate the expected output
+1. parse the input & create the grids
+2. generate grids with the hints (the algorithm)
+3. generate the expected output
 
 
 Entry point: (mines_weeper.ex)
@@ -160,7 +159,7 @@ Where:
 - '.' is a safe square (:safe)
 
 
-##### 3. Generate grid with the hints, the main algorithm  (grid.ex)
+##### 2. Generate grid with the hints, the main algorithm  (grid.ex)
 
 ```bash
   0 1 2 3 x
@@ -180,7 +179,7 @@ The algorithm is simple, recursive and tail call optimized:
 - Call recursively same method with the next position in ghe grid to evaluate
 
 
-##### 4. Generate the output (console_writer.ex):
+##### 3. Generate the output (console_writer.ex):
 
 The output implements a behaviour, so can be replaced easily by other kind of output.
 ```bash
@@ -191,15 +190,10 @@ Field #1:
 1110
 ```
 
-### Assumptions
-
-The solution takes some assumptions and the code reflect them:
-
-- The file has a valid format, so there is no code checking the correctness of the grid
-
 ### Out of scope / to improve
 
 - Input file validation
 - Error handling
 - File input parser could be improved, at least make it tail call optimized
 - Add documentation
+- Add Logging

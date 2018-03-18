@@ -4,7 +4,10 @@ defmodule Minesweeper.Square do
   @type size :: {non_neg_integer, non_neg_integer}
 
   @spec adjacents(grid_size :: size, square :: position) :: [position]
-  def adjacents({size_x, size_y} = _grid_size, {x, y} = _square) do
+  def adjacents(grid_size, square) do
+
+    {size_x, size_y} = grid_size
+    {x, y} = square
 
     all_posible_neighbours =
       [{x - 1, y - 1}, {x, y - 1}, {x + 1, y - 1}, {x - 1, y}, {x + 1, y}, {x - 1, y + 1}, {x, y + 1}, {x + 1, y + 1}]
@@ -16,7 +19,9 @@ defmodule Minesweeper.Square do
   end
 
   @spec next(grid_size :: size, current_square :: position) :: {:next, position} | {:out_of_grid}
-  def next({size_x, size_y} = _grid_size, {x, y} = _square) do
+  def next(grid_size, square) do
+    {size_x, size_y} = grid_size
+    {x, y} = square
     cond do
       x < size_x - 1 -> {:next, {x + 1, y}}
       y < size_y - 1 -> {:next, {0, y + 1}}

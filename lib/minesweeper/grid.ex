@@ -18,16 +18,23 @@ defmodule Minesweeper.Grid do
 
   defp do_discover_hints(result, {:out_of_grid}), do: result
 
-  defp do_discover_hints(grid, {:next, square} = next) do
-    case grid.squares[square] do
+  defp do_discover_hints(grid, next) do
+
+    {:next, square} = next
+    current_value = grid.squares[square]
+
+    case current_value do
       :mine ->
         do_discover_hints(grid, Square.next(grid.size, square))
+
       :safe ->
         hint = hint(grid, square)
         updated_grid =  put_in(grid.squares[square], hint)
         do_discover_hints(updated_grid, Square.next(grid.size, square))
+
       _ ->
         raise ArgumentError, message: "invalid arguments #{grid} next: {#{elem(square,0)}, #{elem(square,1)}}"
+
     end
   end
 
@@ -40,7 +47,8 @@ defmodule Minesweeper.Grid do
   end
 
   defimpl String.Chars, for: Grid do
-    def to_string(%Grid{size: {x,y}, squares: squares }= grid) do
+    def to_string(grid) do
+      %Grid{size: {x,y}, squares: squares }= grid
       squares_as_string = Enum.map(squares, fn {k, v} -> "{#{elem(k,0)}, #{elem(k,1)} => #{v}" end)
       "grid : {size: {#{x}, #{y}}, squares: #{squares_as_string}}"
     end

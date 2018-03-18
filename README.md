@@ -107,7 +107,7 @@ mix test
 
 ### Compiling and running
 
-
+// TODO
 
 #### Approach
 
@@ -123,32 +123,37 @@ for different parts of the implementation:
 Entry point (Minesweeper.ex)
 
 ```bash
-Minesweeper.sdf(path)
+
 ```
 
-1. Parsing the input from file (XXXX.ex):
+##### 1. Parsing the input from file (XXXX.ex):
 
+```bash
 4 4
 *...
 ....
 .*..
 ....
+```
 
-2. Create a grid :
+##### 2. Create a grid :
 
-
+```bash
   0 1 2 3
 ---------
 0|* . . .
 1|. . . . 
 2|. * . .
 3|. . . .
+```
+Where:
+- '*' is a mine (:mine)
+- '.' is a safe square (:safe)
 
-* == :mine
-. == :safe
 
-3. Generate grid with the hints, the main algorithm  (Minesweeper.Grid.ex)
+##### 3. Generate grid with the hints, the main algorithm  (Minesweeper.Grid.ex)
 
+```bash
   0 1 2 3 x
 ---------
 0|* 1 0 0 
@@ -156,10 +161,17 @@ Minesweeper.sdf(path)
 2|1 * 1 0 
 3|1 1 1 0 
 y
+```
 
-- recursive and tail call optimized
+The algorithm is simple, recursive and tail call optimized:
 
-4. Generate the output
+- Given a grid and a current position in the grid
+- Sum all mines of your adjacent squares
+- Generate a new grid with the hint in that position
+- Call recursively same method with the next position in ghe grid to evaluate
+
+
+##### 4. Generate the output
 
 ### Assumptions
 

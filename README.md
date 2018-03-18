@@ -107,11 +107,7 @@ Elixir 1.5.1
 mix test
 ```
 
-### Compiling and running
-
-// TODO
-
-#### Approach
+### Approach
 
 There is one single entry point for the application, it has the functionality of facade and it orchestrate the
 for different parts of the implementation:

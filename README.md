@@ -157,7 +157,7 @@ Minesweeper.sdf(path)
 3|1 1 1 0 
 y
 
-- recursive
+- recursive and tail call optimized
 
 4. Generate the output
 

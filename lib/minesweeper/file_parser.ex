@@ -8,12 +8,12 @@ defmodule Minesweeper.FileParser do
     parse_grids(IO.read(file, :line), file)
   end
 
-  defp parse_grids(:eof, _), do: []
+  defp parse_grids(:eof, _file), do: []
 
   defp parse_grids(size_line, file) do
-    {x, y} = parse_grid_size(size_line)
-    lines = Enum.map(1..y, fn _ -> IO.read(file, :line) end)
-    [create_board({x, y}, lines) | parse_grids(IO.read(file, :line), file)]
+    {rows, columns} = parse_grid_size(size_line)
+    lines = Enum.map(1..rows, fn _ -> IO.read(file, :line) end)
+    [create_board({rows, columns}, lines) | parse_grids(IO.read(file, :line), file)]
   end
 
   defp parse_grid_size(size_line) do
@@ -31,7 +31,7 @@ defmodule Minesweeper.FileParser do
       |> String.trim
       |> String.graphemes
       |> Enum.with_index
-      |> Enum.map(fn {char, x} -> {{x, y},square_value(char)} end)
+      |> Enum.map(fn {char, x} -> {{x, y}, square_value(char)} end)
     end
 
     squares = entries

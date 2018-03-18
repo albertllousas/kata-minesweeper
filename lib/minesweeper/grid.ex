@@ -24,6 +24,8 @@ defmodule Minesweeper.Grid do
        do: %Grid{size: {1, 1}, squares: %{{0,0}=>0}}
 
 
+  def hint(grid, square), do: 0
+
   #  recursive until current evaluated position equals to size
   #       public method calculate hint summing adjacents Enum. 0 .. 8, quizas un reduce desde 0
 

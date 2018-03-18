@@ -122,14 +122,15 @@ for different parts of the implementation:
 4. generate the expected output
 
 
-Entry point (Minesweeper.ex)
+Entry point: (mines_weeper.ex)
 
-```bash
-
+```elixir
+Minesweeper.sweep "path_to_your_file"
 ```
 
-##### 1. Parsing the input from file (XXXX.ex):
+##### 1. Parsing the input from file (grid_parser.ex):
 
+From:
 ```bash
 4 4
 *...
@@ -138,7 +139,7 @@ Entry point (Minesweeper.ex)
 ....
 ```
 
-##### 2. Create a grid :
+To:
 
 ```bash
   0 1 2 3
@@ -148,12 +149,17 @@ Entry point (Minesweeper.ex)
 2|. * . .
 3|. . . .
 ```
+The grid representation is an struct by:
+
+- size: a tuple simple tuple {rows_size, columns_size}
+- squares: a map with entries like {x,y} => square_value
+
 Where:
 - '*' is a mine (:mine)
 - '.' is a safe square (:safe)
 
 
-##### 3. Generate grid with the hints, the main algorithm  (Minesweeper.Grid.ex)
+##### 3. Generate grid with the hints, the main algorithm  (grid.ex)
 
 ```bash
   0 1 2 3 x
@@ -173,7 +179,16 @@ The algorithm is simple, recursive and tail call optimized:
 - Call recursively same method with the next position in ghe grid to evaluate
 
 
-##### 4. Generate the output
+##### 4. Generate the output (console_writer.ex):
+
+The output implements a behaviour, so can be replaced easily by other kind of output.
+```bash
+Field #1:
+*100
+2210
+1*10
+1110
+```
 
 ### Assumptions
 

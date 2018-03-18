@@ -149,10 +149,15 @@ To:
 2|. * . .
 3|. . . .
 ```
-The grid representation is an struct by:
+The grid representation is an elixir struct:
 
-- size: a tuple simple tuple {rows_size, columns_size}
-- squares: a map with entries like {x,y} => square_value
+```elixir
+@type hint :: 0..8
+@type square_value :: (:mine | :safe | hint)
+@type position :: {non_neg_integer, non_neg_integer}
+@type squares :: %{position => square_value}
+@type t :: %Minesweeper.Grid{size: {non_neg_integer, non_neg_integer}, squares: squares}
+```
 
 Where:
 - '*' is a mine (:mine)

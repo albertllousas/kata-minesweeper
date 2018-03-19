@@ -54,4 +54,16 @@ defmodule Minesweeper.Input.FileParserTest do
            }
   end
 
+  test "should parse grid size from a valid string line" do
+    assert FileParser.parse_grid_size("3 4") === {3, 4}
+  end
+
+  test "should parse grid size from a valid string line with a newline identifier at the end" do
+    assert FileParser.parse_grid_size("3 4\n") === {3, 4}
+  end
+
+  test "should fail parsing grid size from a invalid string line" do
+    assert_raise MatchError, fn -> FileParser.parse_grid_size("34") === {3, 4} end
+  end
+
 end

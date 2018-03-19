@@ -195,5 +195,6 @@ Field #1:
 - Input file validation
 - Error handling
 - File input parser could be improved, at least make it tail call optimized
+- File output parser could be improved, at least make it tail call optimized
 - Add documentation
 - Add Logging

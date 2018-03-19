@@ -18,12 +18,13 @@ defmodule Minesweeper.Input.FileParser do
     [create_board({rows, columns}, lines) | parse_grids(IO.read(file, :line), file)]
   end
 
-  defp parse_grid_size(size_line) do
-    size_line
-    |> String.trim
-    |> String.split
-    |> Enum.map(&(String.to_integer(&1)))
-    |> List.to_tuple
+  def parse_grid_size(size_line) do
+    {rows, columns} = size_line
+                      |> String.trim
+                      |> String.splitgit
+                      |> Enum.map(&(String.to_integer(&1)))
+                      |> List.to_tuple
+    {rows, columns}
   end
 
   defp create_board(size, board_lines) do

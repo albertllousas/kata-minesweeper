@@ -92,9 +92,9 @@ Field #2:
 
 ## The solution
 
-The solution has been coded with TDD, check git logs.
+The solution has been coded doing TDD, check git logs.
 
-### Developed and tested environment
+### Environment
 ```bash
 elixir -v
 Erlang/OTP 20 [erts-9.0.4] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
@@ -105,6 +105,12 @@ Elixir 1.5.1
 ### Running the tests
 ```bash
 mix test
+```
+
+### Build and run the app
+```bash
+mix escript.build
+./kata_minesweeper --path=test/resources/simple_grid.txt
 ```
 
 ### Approach
@@ -194,7 +200,7 @@ Field #1:
 
 - Input file validation
 - Error handling
-- File input parser could be improved, at least make it tail call optimized
-- File output parser could be improved, at least make it tail call optimized
+- File input parser could be improved, at least make it recursive and tail call optimized
+- File output parser could be improved, at least make it recursive and tail call optimized
 - Add documentation
 - Add Logging

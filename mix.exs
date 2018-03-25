@@ -6,6 +6,7 @@ defmodule Minesweeper.Mixfile do
       app: :kata_minesweeper,
       version: "0.1.0",
       elixir: "~> 1.5",
+      escript: [main_module: Minesweeper],
       start_permanent: Mix.env == :prod,
       deps: deps()
     ]

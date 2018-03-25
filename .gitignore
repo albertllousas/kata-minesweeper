@@ -22,3 +22,5 @@ erl_crash.dump
 /.idea/
 
 *.iml
+
+kata_minesweeper

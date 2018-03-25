@@ -1,9 +1,5 @@
 # Kata Minesweeper
 
-## About this kata
-
-http://codingdojo.org/kata/Minesweeper/
-
 ## The problem
 
 ### Minesweeper game
@@ -26,6 +22,8 @@ The same field including the hint numbers described above would look like this:
 1110
 ```
 
+More info: [microsoft minesweeper](https://en.wikipedia.org/wiki/Microsoft_Minesweeper)
+
 ### Problem Description
 
 #### Input
@@ -42,7 +40,6 @@ columns of the field respectively.
 - Each safe square is represented by an “.” character (without the quotes) and each mine square is represented 
 by an “*” character (also without the quotes). 
 
-- The first field line where n = m = 0 represents the end of input and should not be processed.
 
 #### Output
 
@@ -74,7 +71,6 @@ This is the acceptance test input:
 **...
 .....
 .*...
-0 0
 ```
 and output:
 ```bash
@@ -200,7 +196,7 @@ Field #1:
 
 - Input file validation
 - Error handling
-- File input parser could be improved, at least make it recursive and tail call optimized
+- File input parser could be improved: at least make it recursive and tail call optimized
 - File output parser could be improved, at least make it recursive and tail call optimized
 - Add documentation
 - Add Logging

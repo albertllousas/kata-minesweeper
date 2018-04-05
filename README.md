@@ -116,12 +116,11 @@ mix escript.build
 
 ### Approach
 
-There is one single entry point for the application, it has the functionality of facade and it orchestrate the
-for different parts of the implementation:
+There is one single entry point for the application, it has the functionality of facade and it orchestrate the different parts of the implementation:
 
-1. parse the input & create the grids
-2. generate grids with the hints (the algorithm)
-3. generate the expected output
+1. Parse the input & create the grids
+2. Generate grids with the hints (the algorithm)
+3. Generate the expected output
 
 
 Entry point: (mines_weeper.ex)
@@ -181,14 +180,14 @@ y
 The algorithm is simple, recursive and tail call optimized:
 
 - Given a grid and a current position in the grid
-- Sum all mines of your adjacent squares
+- Sum all mines of its adjacent squares
 - Generate a new grid with the hint in that position
 - Call recursively same method with the next position in ghe grid to evaluate
 
 
 ##### 3. Generate the output (console_writer.ex):
 
-The output implements a behaviour, so can be replaced easily by other kind of output.
+The output implements a behaviour, so can be replaced easily by another kind of output.
 ```bash
 Field #1:
 *100

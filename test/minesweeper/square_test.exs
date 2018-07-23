@@ -50,7 +50,7 @@ defmodule Minesweeper.SquareTest do
 
   test "in a non size grid should not be a next square" do
     next = Square.next({0, 0}, {0, 0})
-    assert next === {:out_of_grid}
+    assert next === {:end}
   end
 
   test "in a standard grid, the next square of a square in the middle is the one at right" do
@@ -63,14 +63,14 @@ defmodule Minesweeper.SquareTest do
     assert next === {:next, {0, 4}}
   end
 
-  test "in a standard grid, the next square of the square in the bottom right corner is out of the grid" do
+  test "in a standard grid, the next square of the square in the bottom right corner is the end" do
     next = Square.next({5, 5}, {4, 4})
-    assert next === {:out_of_grid}
+    assert next === {:end}
   end
 
-  test "in a standard grid, the next square of an invalid square will be out of the grid" do
+  test "in a standard grid, the next square of an invalid square will be the end" do
     next = Square.next({5, 5}, {6, 6})
-    assert next === {:out_of_grid}
+    assert next === {:end}
   end
 
   test "in a four squares grid, the next square of bottom right square is the one at bottom left" do

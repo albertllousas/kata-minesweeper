@@ -16,7 +16,7 @@ defmodule Minesweeper.Grid do
     do_discover_hints(grid, {:next, {0, 0}})
   end
 
-  defp do_discover_hints(result, {:out_of_grid}), do: result
+  defp do_discover_hints(result, {:end}), do: result
 
   defp do_discover_hints(grid, next) do
 
@@ -36,6 +36,7 @@ defmodule Minesweeper.Grid do
         raise ArgumentError, message: "invalid arguments #{grid} next: {#{elem(square,0)}, #{elem(square,1)}}"
 
     end
+
   end
 
   @spec hint(grid :: Grid.t, square :: position) :: hint
